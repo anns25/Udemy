@@ -1,0 +1,55 @@
+body{
+	background-color: #232323;
+	margin: 0;
+}
+
+h1{
+	text-align: center;
+	background-color: steelblue;
+	color: white;
+	margin: 0;
+	font-family: "Montserrat", "Avenir";
+	padding: 20px 0;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+#color-title{
+	font-size: 200%;
+}
+
+#status-bar{
+	padding-top: 10px;
+	background-color: white;
+	height: 30px;
+	text-align: center;
+}
+
+#status-bar button, #game-status{
+	border: none;
+	background: none;
+	color: steelblue;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+	width: 20%;
+}
+
+/*#status-bar button, #game-status{
+	display: inline;
+}*/
+
+#container{
+	margin: 20px auto;
+	min-width: 350px;
+	max-width: 600px;
+}
+
+.square{
+	width:30%;
+	float: left;
+	padding-bottom: 30%;
+	margin: 1.66%;
+	border-radius: 15%;
+	background-color: white;
+}
