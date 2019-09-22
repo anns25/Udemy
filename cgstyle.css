@@ -1,6 +1,7 @@
 body{
 	background-color: #232323;
 	margin: 0;
+	font-family: "Montserrat", "Avenir";
 }
 
 h1{
@@ -8,7 +9,6 @@ h1{
 	background-color: steelblue;
 	color: white;
 	margin: 0;
-	font-family: "Montserrat", "Avenir";
 	padding: 20px 0;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -19,25 +19,34 @@ h1{
 }
 
 #status-bar{
-	padding-top: 10px;
 	background-color: white;
 	height: 30px;
 	text-align: center;
 }
 
-#status-bar button, #game-status{
+button{
 	border: none;
+	outline: none;
 	background: none;
+	display: inline-block;
+	height: 100%;
+}
+
+.status-style{
 	color: steelblue;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+#game-status{
 	display: inline-block;
 	width: 20%;
 }
 
-/*#status-bar button, #game-status{
-	display: inline;
-}*/
+button:hover, .selected{
+	background-color: steelblue;
+	color: white;
+}
 
 #container{
 	margin: 20px auto;
@@ -53,3 +62,4 @@ h1{
 	border-radius: 15%;
 	background-color: white;
 }
+
