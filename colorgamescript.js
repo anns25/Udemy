@@ -1,56 +1,73 @@
 var colors = [];
 var pickedColor;
+var grid_size;
 var heading = document.querySelector("h1");
 var gameMessage = document.querySelector("#game-status");
 var squares = document.querySelectorAll(".square");
-var grid_size = 6;
 var newColors = document.querySelector("#color-change");
 var mode = document.querySelectorAll(".mode");
 
-reset();
+init();
 
-newColors.addEventListener("click", function(){
+
+/* initialising function */
+
+function init(){
+	grid_size = 6;
+	setSquares();
+	setModes();
+	newColors.addEventListener("click", function(){
+		reset();
+	});
 	reset();
-});
-
+}
 
 /* click action for each square in the grid */
 
-for(var i = 0; i < squares.length; i++){
-	squares[i].addEventListener("click", function(){
-		var clickedColor = this.style.backgroundColor;
-		if(clickedColor === pickedColor){
-			/* change h1 background , put game-status as success and change the complete grid color */
-			heading.style.backgroundColor = pickedColor;
-			gameMessage.textContent = "success";
-			changeColor(pickedColor);
-			newColors.textContent = "play again"
-		}
-		else{
-			/* make that square disappear and put game-status as try again */
-			this.style.backgroundColor = "#232323";
-			gameMessage.textContent = "Try Again"
-		}
-	});
+function setSquares(){
+	for(var i = 0; i < squares.length; i++){
+		squares[i].addEventListener("click", function(){
+			var clickedColor = this.style.backgroundColor;
+			if(clickedColor === pickedColor){
+				/* change h1 background , put game-status as success and change the complete grid color */
+				heading.style.backgroundColor = pickedColor;
+				gameMessage.textContent = "success";
+				changeColor(pickedColor);
+				newColors.textContent = "play again"
+			}
+			else{
+				/* make that square disappear and put game-status as try again */
+				this.style.backgroundColor = "#232323";
+				gameMessage.textContent = "Try Again"
+			}
+		});
+	}
 }
+
 
 /* click action for hard and easy mode */
 
-for(var i = 0; i < mode.length; i++){
-	mode[i].addEventListener("click", function(){
-		mode[0].classList.remove("selected");
-		mode[1].classList.remove("selected");
-		this.classList.add("selected");
-		this.textContent === "hard" ? grid_size = 6: grid_size = 3;
-		reset();
-	});
+function setModes(){
+	for(var i = 0; i < mode.length; i++){
+		mode[i].addEventListener("click", function(){
+			mode[0].classList.remove("selected");
+			mode[1].classList.remove("selected");
+			this.classList.add("selected");
+			this.textContent === "hard" ? grid_size = 6: grid_size = 3;
+			reset();
+		});
+	}
 }
+
+/* changing the grid colors when success */
 
 function changeColor(color){
 	for(var i = 0; i < squares.length; i++){
 		squares[i].style.backgroundColor = color;
 	}
 }
+
+/* to pick random colors of the new color game */
 
 function pickRandomColors(num){
 	var rgb = [];
@@ -83,7 +100,7 @@ function newGrid(grid_size){
 	}
 }
 
-/* assigning random colors to the array */
+/* reseting to a new game, change grid colors, reset heading , buttons and message */
 
 function reset(){
 	newGrid(grid_size);
